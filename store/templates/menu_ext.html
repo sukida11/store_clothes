@@ -1,0 +1,10 @@
+<div class="list-group">
+    {% if cats %}
+        {% for cat in cats %}
+            <a href="{% url 'store:catalog' %}?filter={{cat.url}}" class="list-group-item">{{cat.title}}</a>
+        {% endfor %}
+    {%endif%}
+    {% if request.GET.filter %}
+        <a href="{% url 'store:catalog' %}" class="list-group-item">Сбросить фильтры</a>
+    {% endif %}
+</div>
